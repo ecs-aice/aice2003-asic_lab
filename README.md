@@ -61,7 +61,18 @@ Once Nix has started, check that LibreLane is happy by running `librelane --smok
 
 <img width="1733" height="980" alt="image" src="https://github.com/user-attachments/assets/001e49ac-9309-4959-9367-cfe9a140942e" />
 
-You now have a working LibreLane installation. The next step is to clone this repository and move on with the exercises below.
+We need the exercise files and a development version of LibreLane to support the `ihp-sg13g2` PDK, which this repository can helpfully configure.
+Exit your current Nix-Shell by pressing `Ctrl+D`, clone this repository into your home directory and then re-run Nix-Shell in the lab directory:
+```
+cd ~
+git clone https://github.com/ecs-aice/aice2003-asic_lab.git
+cd aice2003-asic_lab
+nix-shell
+```
+
+This will take a few minutes to setup the environment. You can run `librelane --smoke-test` again to make sure it's all happy.
+
+You now have a working LibreLane installation. The next step is to move on with the exercises below.
 
 If you want to use any of the tools included in the OSS CAD Suite at any point, you will need to source the environment. From your home directory, you can run `source ~/oss-cad-suite/environment` and you will end up with an (OSS CAD Suite) prompt: 
 <img width="599" height="115" alt="image" src="https://github.com/user-attachments/assets/c9a10317-662e-4d1c-9371-8c6fbf59a233" />
@@ -69,16 +80,7 @@ If you want to use any of the tools included in the OSS CAD Suite at any point, 
 
 ## Exercises
 
-Make sure you have cloned this repository to your WSL image and are in the repository. You can clone into the librelane directory or your home directory.
-
-e.g. from in Nix-Shell:
-```
-git clone https://github.com/ecs-aice/aice2003-asic_lab.git
-cd aice2003-asic_lab
-```
-N.B. Do not work on the Windows-mapped filesystem. You need to be using the local filesystem in your WSL instance.
-
-You can then cd into each exercise directory.
+Make sure you have cloned this repository to your WSL image and are in the repository and in a Nix-Shell started from inside this repository.
 
 - [Exercise 1](exercise_1/README.md): Let's Implement a Counter
 - [Exercise 2](exercise_2/README.md): All About Configuration Variables
