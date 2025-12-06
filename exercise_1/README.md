@@ -1,5 +1,7 @@
 # Exercise 1 - Let's Implement a Counter
 
+To start with, run `cd exercise_1` to end up in the correct directory.
+
 ## 1.1 - Run LibreLane
 
 We start the first exercise by implementing a simple counter. Make sure you have a shell with LibreLane enabled, and run the following command in this folder:
