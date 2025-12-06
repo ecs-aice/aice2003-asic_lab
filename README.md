@@ -61,7 +61,7 @@ Once Nix has started, check that LibreLane is happy by running `librelane --smok
 
 <img width="1733" height="980" alt="image" src="https://github.com/user-attachments/assets/001e49ac-9309-4959-9367-cfe9a140942e" />
 
-You now have a working LibreLane installation and can move on with the exercises below.
+You now have a working LibreLane installation. The next step is to clone this repository under the librelane directory (`git clone https://github.com/ecs-aice/aice2003-asic_lab.git`) and move on with the exercises below.
 
 If you want to use any of the tools included in the OSS CAD Suite at any point, you will need to source the environment. From your home directory, you can run `source ~/oss-cad-suite/environment` and you will end up with an (OSS CAD Suite) prompt: 
 <img width="599" height="115" alt="image" src="https://github.com/user-attachments/assets/c9a10317-662e-4d1c-9371-8c6fbf59a233" />
