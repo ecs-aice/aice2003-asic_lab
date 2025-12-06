@@ -63,6 +63,10 @@ Once Nix has started, check that LibreLane is happy by running `librelane --smok
 
 You now have a working LibreLane installation and can move on with the exercises below.
 
+If you want to use any of the tools included in the OSS CAD Suite at any point, you will need to source the environment. From your home directory, you can run `source ~/oss-cad-suite/environment` and you will end up with an (OSS CAD Suite) prompt: 
+<img width="599" height="115" alt="image" src="https://github.com/user-attachments/assets/c9a10317-662e-4d1c-9371-8c6fbf59a233" />
+
+
 ## Exercises
 
 - [Exercise 1](exercise_1/README.md): Let's Implement a Counter
