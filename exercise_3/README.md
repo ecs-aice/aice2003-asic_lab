@@ -8,21 +8,33 @@ In this exercise, you will learn exactly how to do this.
 
 ## 3.1 - Run To a Step
 
-The `Classic` flow is a so-called `SequentialFlow` that consists of a [number of steps](https://github.com/librelane/librelane/blob/d96f32212d025acd1d7acf01f395951cf3d4aa12/librelane/flows/classic.py#L40).
+The `Classic` flow is a so-called `SequentialFlow` that consists of a [number of steps](https://github.com/librelane/librelane/blob/d96f32212d025acd1d7acf01f395951cf3d4aa12/librelane/flows/classic.py#L40). These steps largely correspond to the Digital Design Flow diagram that we looked at during the lectures.
 
-Let's say we only want to run up to `Yosys.Synthesis` as we're still debugging some issues there.
+Let's run to the end of the first stage of digital design - having error-free SystemVerilog as an input - by running up to the end of `Checker.LintWarnings`. Running to this step will run Verilator as a linter and then check the output for timing constructs, errors and warnings.
 
 ```
-librelane --pdk ihp-sg13g2 config.yaml --to Yosys.Synthesis
+librelane --pdk ihp-sg13g2 config.yaml --to Checker.LintWarnings
 ```
 
 Or even shorter:
 
 ```
-librelane --pdk ihp-sg13g2 config.yaml -T Yosys.Synthesis
+librelane --pdk ihp-sg13g2 config.yaml -T Checker.LintWarnings
 ```
 
-LibreLane runs and should report a number of skipped steps after `Yosys.Synthesis`.
+Oh dear, that didn't work. Check the output carefully and have a look at `shift_register.sv`. Fix the single-charater error and re-run the flow.
+
+Make sure to make a note of what you fixed...
+
+Tip: you have access to `nano` in the WSL image, or can connect to it from VS Code.
+
+Perfect, that should work now and LibreLane should report a number of skipped steps after `Checker.LintWarnings`.
+
+Now let's run up to `Yosys.Synthesis` as we could still be debugging some issues there.
+
+```
+librelane --pdk ihp-sg13g2 config.yaml --to Yosys.Synthesis
+```
 
 Next, let's run to `OpenROAD.GlobalPlacement`.
 I think you can do that yourself now, right?
@@ -37,13 +49,13 @@ It should look something like this:
 
 ![OpenROAD GUI](img/openroad_1.png)
 
-It almost feels organic, like a snake? That's because the design is a long shift-register, basically one long chain of flip-flops. At the `OpenROAD.GlobalPlacement` the instances are all placed - roughly - however the standard cells are not yet snapped into the standard cell grid. That's what `OpenROAD.DetailedPlacement` does.
-
-So, let's see how we can run from `OpenROAD.GlobalPlacement` to `OpenROAD.DetailedPlacement`.
+It almost feels organic, like a snake? That's because the design is a long shift-register, basically one long chain of flip-flops. At the `OpenROAD.GlobalPlacement` the instances are all placed - roughly - however the standard cells are not yet legally placed on core sites yet. That's what `OpenROAD.DetailedPlacement` does.
 
 ## 3.2 - Run From A Step
 
-To do this we need to start the flow `from` a step.
+So far each run we have done has re-run all previous steps. We don't necessarily need or want to do this every time, say where we want to keep a global placement and just influence the detailed placement. 
+
+So, let's see how we can run from `OpenROAD.GlobalPlacement` to `OpenROAD.DetailedPlacement`. To do this we need to start the flow `from` a step.
 
 ```
 librelane --pdk ihp-sg13g2 config.yaml --from OpenROAD.GlobalPlacement

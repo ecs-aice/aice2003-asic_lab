@@ -15,7 +15,7 @@ module shift_register (
         end else begin
             for (int i=0; i<BITS; i++) begin
                 if (i==0) begin
-                    shift_reg[i] <= in_i;
+                    shift_reg[i] <= in_i
                 end else begin
                     shift_reg[i] <= shift_reg[i-1];
                 end
