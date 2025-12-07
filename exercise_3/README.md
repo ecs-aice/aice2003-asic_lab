@@ -49,7 +49,7 @@ It should look something like this:
 
 ![OpenROAD GUI](img/openroad_1.png)
 
-It almost feels organic, like a snake? That's because the design is a long shift-register, basically one long chain of flip-flops. At the `OpenROAD.GlobalPlacement` the instances are all placed - roughly - however the standard cells are not yet legally placed on core sites yet. That's what `OpenROAD.DetailedPlacement` does.
+It almost feels organic, like a snake? That's because the design is a long shift-register, basically one long chain of flip-flops. At the `OpenROAD.GlobalPlacement` the instances are all placed - roughly - however the standard cells are not yet legally placed on core sites yet. That's what `OpenROAD.DetailedPlacement` does. Make sure to keep a screenshot of your global placement.
 
 ## 3.2 - Run From A Step
 
@@ -84,6 +84,11 @@ Thus, let's add the `to` argument as well:
 
 ```
 librelane --pdk ihp-sg13g2 config.yaml --last-run --from OpenROAD.GlobalPlacement --with-initial-state runs/<time_stamp>/28-openroad-globalplacement/state_in.json --to OpenROAD.DetailedPlacement
+```
+Once the detailed placement is complete, open the OpenROAD GUI again and compare the output of the global placement to the detailed placement. See the difference? Make sure to keep a screenshot of the detailed placement.
+
+```
+librelane --pdk ihp-sg13g2 config.yaml --last-run --flow OpenInOpenROAD
 ```
 
 ## 3.3 Skip a Step
