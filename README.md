@@ -75,6 +75,7 @@ This will take a few minutes to setup the environment. You can run `librelane --
 You now have a working LibreLane installation. The next step is to move on with the exercises below.
 
 If you want to use any of the tools included in the OSS CAD Suite at any point, you will need to source the environment. From your home directory, you can run `source ~/oss-cad-suite/environment` and you will end up with an (OSS CAD Suite) prompt: 
+
 <img width="599" height="115" alt="image" src="https://github.com/user-attachments/assets/c9a10317-662e-4d1c-9371-8c6fbf59a233" />
 
 
@@ -86,6 +87,9 @@ Make sure you have cloned this repository to your WSL image and are in the repos
 - [Exercise 2](exercise_2/README.md): All About Configuration Variables
 - [Exercise 3](exercise_3/README.md): Controlling the Flow
 - [Exercise 4](exercise_4/README.md): Using Macros
+
+Optional Extra Work (if you have time...)
+
 - [Exercise 5](exercise_5/README.md): The LibreLane API
 - [Bonus](bonus/README.md): Full Chip Design
 
