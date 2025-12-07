@@ -40,7 +40,7 @@ And here's our lonely lump of standard cells:
 Normally you want the smallest possible area with the highest possible density.
 What prevents you in from cranking up the target density to 100%? Once the target density reaches a certain value, OpenROAD will have trouble routing your design - because everything is so dense!
 
-**Your task** is now to find the smallest possible area with the highest target density.
+**Your task** is now to find the smallest possible area with the highest target density - Don't spend more than 5-10 minutes on this, maybe run different sizes in parallel with your lab partner.
 
 Don't worry, if the target density is too low to fit the design into the given area, OpenROAD will tell you. And if it is too high, then routing will fail. It's a balancing act.
 
@@ -101,9 +101,7 @@ Why do we have to specify the die area? Isn't that part of the DEF template? It 
 
 ![OpenROAD GUI](img/openroad_3.png)
 
-Nice! And ready for submission to Tiny Taepout.
-
-Now, try some of the other DEF templates. But don't forget to adjust the die area!
+Nice! We would now be ready to generate our design as a macro to submit to Tiny Taepout if we wanted to make this chip.
 
 ### 2.4 - Placing Obstructions
 
