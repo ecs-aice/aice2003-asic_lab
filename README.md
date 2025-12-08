@@ -51,9 +51,23 @@ You will require the AICE2003 ASIC Lab WSL image or a working [Nix-based Install
 The instructions are written around the use of the WSL image.
 
 ## Setting Up
-Download the AICE2003 ASIC Lab WSL image and then import it into WSL:
+Download the AICE2003 ASIC Lab WSL image (link on the module page) and then import it into WSL (assuming that you want to put the imported image in `c:\Users\<username>\wsl\LibreLane` and downloaded it to `c:\Users\<username>\Downloads`): 
+```
+mkdir $env:USERPROFILE/wsl/LibreLane
+wsl --import LibreLane $env:USERPROFILE\wsl\LibreLane $env:USERPROFILE\Downloads\aice2003-wsl-librelane.tar.gz
+```
 
-Start the image and make sure you are in your home directory in the image by typing `cd ~`.
+Make sure the default user is set:
+
+```
+wsl --manage LibreLane --set-default-user librelane
+```
+
+Start the image and make sure you are in your home directory in the image:
+```
+wsl -d LibreLane
+cd ~
+```
 
 `cd` into the librelane directory and execute `nix-shell` to start the LibreLane environment. This has to be done each time you want an extra terminal.
 
